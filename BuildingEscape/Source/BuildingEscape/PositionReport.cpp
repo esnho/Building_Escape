@@ -2,7 +2,7 @@
 
 #include "PositionReport.h"
 
-// IMPORTANTE aggiungere questa inclusione per abilitare l'autocomplete dei metodi relativi ad Actor
+// IMPORTANTE aggiungere questa inclusione per abilitare i metodi della classe AActor
 #include "GameFramework/Actor.h"
 
 
@@ -24,7 +24,9 @@ void UPositionReport::BeginPlay()
 
 	FString ObjectName = GetOwner()->GetName();
 
-	UE_LOG(LogTemp, Warning, TEXT("Position report reporting for duty on %s!"), *ObjectName);
+	FString ObjectPos = GetOwner()->GetTransform().GetLocation().ToString();
+
+	UE_LOG(LogTemp, Warning, TEXT("%s is at %s"), *ObjectName, *ObjectPos);
 	
 }
 
