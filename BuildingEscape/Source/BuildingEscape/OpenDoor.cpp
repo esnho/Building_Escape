@@ -4,6 +4,7 @@
 
 // IMPORTANTE aggiungere questa inclusione per abilitare i metodi della classe AActor
 #include "GameFramework/Actor.h"
+#include "Engine/World.h"
 
 // Sets default values for this component's properties
 UOpenDoor::UOpenDoor()
@@ -21,19 +22,18 @@ void UOpenDoor::BeginPlay()
 {
 	Super::BeginPlay();
 
+	ActorThatOpen = GetWorld()->GetFirstPlayerController()->GetPawn();
+}
+
+void UOpenDoor::OpenDoor()
+{
 	// The Owning Actor
 	AActor* Owner = GetOwner();
 
-	// Log the Door Rotation String
-	FString DoorRotation = Owner->GetActorRotation().ToString();
-	UE_LOG(LogTemp, Error, TEXT("Door rotation %s"), *DoorRotation);
-
-	// Create a Rotator, it Uses Pitch Yaw Roll, can be confusing, it means (not exactly) x z y
-	FRotator NewRotation = Owner->GetActorRotation().Add(0.0f, -45.0f, 0.0f);
+	FRotator NewRotation = FRotator(0.f, OpenAngle, 0.f);
 
 	// Set the rotation
 	Owner->SetActorRotation(NewRotation);
-	
 }
 
 
@@ -42,6 +42,9 @@ void UOpenDoor::TickComponent(float DeltaTime, ELevelTick TickType, FActorCompon
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
-	// ...
+	// If the ActorThat Open is in the volume then open the door
+	if (PressurePlate->IsOverlappingActor(ActorThatOpen)) {
+		OpenDoor();
+	}
 }
 
