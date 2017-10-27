@@ -4,9 +4,11 @@
 */Intermediate
 */Saved
 
+
 # Visual Studio generated files
 *vc.db
 
 # Project file
-BuildingEscape/Content/StarterContent/
+BuildingEscape/Content/StarterContent/Textures
+BuildingEscape/Content/StarterContent/HDRI
 BuildingEscape/.vs/
