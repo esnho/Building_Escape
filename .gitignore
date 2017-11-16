@@ -1,14 +1,10 @@
-# Unreal generated files
-*/Binaries
-*/DerivedDataCache
-*/Intermediate
-*/Saved
-
-
-# Visual Studio generated files
-*vc.db
-
-# Project file
-BuildingEscape/Content/StarterContent/Textures
-BuildingEscape/Content/StarterContent/HDRI
 BuildingEscape/.vs/
+BuildingEscape/Content/StarterContent/Textures/
+BuildingEscape/Intermediate/Build/
+BuildingEscape/Intermediate/AssetRegistryCache/
+BuildingEscape/Binaries/
+BuildingEscape/Intermediate/CachedAssetRegistry.bin
+BuildingEscape/Intermediate/ProjectFiles/
+BuildingEscape/Intermediate/ReimportCache/
+BuildingEscape/Saved/
+BuildingEscape/Content/StarterContent/HDRI/HDRI_Epic_Courtyard_Daylight.uasset
